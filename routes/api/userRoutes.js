@@ -1,6 +1,6 @@
 //import Express Router and User model
 const router = require("express").Router();
-const { User } = require("../../models/User");
+const User = require("../../models/User");
 //import signToken function for authentication
 const { signToken } = require("../../utils/auth");
 
@@ -16,6 +16,7 @@ router.post("/register", async (req, res) => {
     //return the token and user data
     res.status(201).json({ token, user });
   } catch (err) {
+    console.error("User registration error:", err.message);
     //handle any errors during user creation
     res.status(400).json(err);
   }
