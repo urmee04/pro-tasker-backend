@@ -19,6 +19,30 @@ router.get("/", async (req, res) => {
   }
 });
 
+//--------------------------------------------------------------------------
+// GET /api/projects/:id - Get a single project by ID for the logged-in user
+//--------------------------------------------------------------------------
+
+router.get("/:id", async (req, res) => {
+  try {
+    //find project by its ID
+    const project = await Project.findOne({
+      _id: req.params.id,
+      user: req.user._id, //associate project with logged-in user
+    });
+
+    if (!project) {
+      return res
+        .status(404)
+        .json({ message: "No project found or unauthorized" });
+    }
+
+    res.json(project);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // ----------------------------------------------------------------
 // POST /api/projects - Create a new project for the logged-in user
 // ----------------------------------------------------------------
