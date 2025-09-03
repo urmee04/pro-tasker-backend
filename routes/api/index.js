@@ -1,14 +1,15 @@
+//import Express Router
 const router = require("express").Router();
+
+//import route modules
 const userRoutes = require("./userRoutes");
 const projectRoutes = require("./projectRoutes");
 const taskRoutes = require("./taskRoutes");
 
-//mount user routes at /api/users endpoint
-router.use("/users", userRoutes);
-//mount project routes at /api/projects endpoint
-router.use("/projects", projectRoutes);
-//mount task routes at /api/tasks endpoint
-router.use("/tasks", taskRoutes);
+//define API routes
+router.use("/api/users", userRoutes); //user management routes
+router.use("/api/projects", projectRoutes); //project management routes
+router.use("/api", taskRoutes); //task management routes (nested under projects and standalone tasks)
 
-//export router
+//export the router for use in the main application
 module.exports = router;
