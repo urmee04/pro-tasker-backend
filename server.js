@@ -10,6 +10,11 @@ const PORT = process.env.PORT || 3001; //use environment port or default to 3001
 app.use(express.urlencoded({ extended: true }));
 //middleware to parse JSON data from requests
 app.use(express.json());
+
+//test route
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to the Taskmaster Backend API" });
+});
 //register all API routes
 app.use(routes);
 
