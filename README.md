@@ -79,7 +79,7 @@ PORT=3000
 
 **Step 2: Create a new User (Register)**
 
-- POST http://localhost:3001/api/users/register
+- POST http://localhost:3000/api/users/register
 
 ```bash
 Request (Body = JSON)
