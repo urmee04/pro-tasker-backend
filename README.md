@@ -147,7 +147,7 @@ Response
 
 **Step 6: Create a Task under Project**
 
-- POST http://localhost:3000/api/projects/<projectId>/tasks
+- POST http://localhost:3000/api/projects/projectId/tasks
 - Headers - `Authorization: Bearer <token>`
 
 ```bash
@@ -175,7 +175,7 @@ Response
 
 **Step 7: Get All Tasks for a Project**
 
-- GET http://localhost:3000/api/projects/<projectId>/tasks
+- GET http://localhost:3000/api/projects/projectId/tasks
 - Headers - `Authorization: Bearer <token>`
 
 ```bash
@@ -192,7 +192,7 @@ Response
 
 **Step 8: Update a Task**
 
-- PUT http://localhost:3000/api/tasks/<taskId>
+- PUT http://localhost:3000/api/tasks/taskId
 - Headers - `Authorization: Bearer <token>`
 
 ```bash
@@ -216,7 +216,7 @@ Respose
 
 **Step 9: Delete a Task**
 
-- DELETE http://localhost:3000/api/tasks/<taskId>
+- DELETE http://localhost:3000/api/tasks/taskId
 - Headers - `Authorization: Bearer <token>`
 
 ```bash
@@ -228,7 +228,7 @@ Response
 
 **Step 10: Delete a Project**
 
-- DELETE http://localhost:3000/api/projects/<projectId>
+- DELETE http://localhost:3000/api/projects/projectId
 - Headers - `Authorization: Bearer <token>`
 
 ```bash
