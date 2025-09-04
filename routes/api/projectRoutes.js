@@ -55,6 +55,7 @@ router.post("/", async (req, res) => {
     });
     res.status(201).json(project);
   } catch (err) {
+    console.error("Error fetching projects:", err);
     res.status(400).json(err);
   }
 });
