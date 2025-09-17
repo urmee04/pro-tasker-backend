@@ -7,7 +7,7 @@ const { signToken } = require("../../utils/auth");
 /**
  * POST /api/users/register - Create a new user
  */
-router.post("/register", async (req, res) => {
+router.post("/signup", async (req, res) => {
   try {
     //create a new user with the provided data
     const user = await User.create(req.body);
