@@ -26,7 +26,7 @@ module.exports = {
     let token = req.headers.authorization || req.query.token || req.body.token;
 
     //remove "Bearer " prefix from token if present
-    if (token.startsWith("Bearer ")) {
+    if (token && token.startsWith("Bearer ")) {
       token = token.split(" ")[1];
     }
 
