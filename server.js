@@ -1,26 +1,37 @@
+//import required modules
 const express = require("express");
-const db = require("./config/connection"); //database connection configuration
+const db = require("./config/connection"); //MongoDB connection
 const routes = require("./routes"); //API routes
-require("dotenv").config(); //load environment variables from .env file
+const cors = require("cors");
+require("dotenv").config(); //load environment variables
 
-const app = express(); //initialize Express application
-const PORT = process.env.PORT || 3001; //use environment port or default to 3001
+//initialize Express application
+const app = express();
+//set port from environment variable or default to 3001
+const PORT = process.env.PORT || 3001;
 
-//middleware to parse URL-encoded data (form submissions)
-app.use(express.urlencoded({ extended: true }));
-//middleware to parse JSON data from requests
-app.use(express.json());
+//middleware
+app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies/from data
+app.use(express.json()); // Parse JSON bodies
 
-//test route
+//CORS configuration for cross-origin requests
+app.use(
+  cors({
+    origin: ["http://localhost:5174", "http://localhost:5173"], //allow frontend dev servers
+    credentials: true, //allow cookies/auth headers to be sent
+  })
+);
+
+//test/health check route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to the Taskmaster Backend API" });
 });
-//register all API routes
-app.use(routes);
 
-//wait for database connection to open before starting server
+//mount all API routes with /api prefix
+app.use("/api", routes);
+
+//start server only after database connection is established
 db.once("open", () => {
-  //start Express server on specified port
   app.listen(PORT, () =>
     console.log(`Server running on http://localhost:${PORT}`)
   );
