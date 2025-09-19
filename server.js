@@ -17,7 +17,11 @@ app.use(express.json()); // Parse JSON bodies
 //CORS configuration for cross-origin requests
 app.use(
   cors({
-    origin: ["http://localhost:5174", "http://localhost:5173"], //allow frontend dev servers
+    origin: [
+      "http://localhost:5174",
+      "http://localhost:5173",
+      "https://pro-tasker-frontend-sxmf.onrender.com",
+    ], //allow frontend dev servers
     credentials: true, //allow cookies/auth headers to be sent
   })
 );
