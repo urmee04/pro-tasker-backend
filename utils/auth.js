@@ -4,8 +4,8 @@ const jwt = require("jsonwebtoken");
 //load JWT secret from environment variables
 const secret = process.env.JWT_SECRET;
 
-//set token expiration time to 7 days
-const expiration = "7d";
+//set token expiration time to 30 days
+const expiration = "30d";
 
 //validate JWT secret presence in environment variables
 if (!secret) {
