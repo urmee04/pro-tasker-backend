@@ -1,8 +1,8 @@
-### Project: Backend Development
+## Project: Full-Stack MERN Application
 
-#### Overview
+### Pro-Tasker Backend
 
-TaskMaster is a productivity tool API that handles user accounts, project management, and individual tasks. This RESTful API is built with Node.js, Express, and MongoDB.
+Pro-Tasker is a productivity tool API that handles user accounts, project management, and individual tasks. This RESTful API is built with Node.js, Express, and MongoDB.
 
 ---
 
@@ -11,9 +11,9 @@ TaskMaster is a productivity tool API that handles user accounts, project manage
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/urmee04/taskmaster-backend-api.git
+    git clone https://github.com/urmee04/pro-tasker-backend.git
 
-     cd taskmaster-backend-api
+    cd pro-tasker-backend
 ```
 
 2.  Install dependencies:
@@ -22,7 +22,7 @@ git clone https://github.com/urmee04/taskmaster-backend-api.git
     - Create a .env file in the root directory with the following variables:
 
 ```bash
-MONGODB_URI=mongodb_connection_string
+MONGO_URI=mongodb_connection_string
 JWT_SECRET=super-secret-jwt-key-here
 PORT=3000
 ```
@@ -60,12 +60,28 @@ PORT=3000
 
 #### Dependencies
 
-- express
-- mongoose
-- bcrypt
-- jsonwebtoken
-- dotenv
-- nodemon
+- **express:** Web framework for building the backend server and APIs
+- **mongoose:** ODM (Object Data Modeling) library for interacting with MongoDB
+- **bcrypt:** Library for hashing and securely storing user passwords
+- **jsonwebtoken:** For creating and verifying tokens to handle authentication
+- **dotenv:** Loads environment variables from a .env file for secure configuration
+- **nodemon:** Development tool that automatically restarts the server on code changes
+- **cors:** Middleware to enable cross-origin requests between frontend and backend
+- **Render** - Platform-as-a-Service for deployment
+- **Git** - Version control system
+
+---
+
+### Deployment
+
+- [Frontend Static Site](https://pro-tasker-frontend-sxmf.onrender.com)
+- [Backend Web Service](https://pro-tasker-backend-v3k9.onrender.com)
+
+---
+
+### Pro-Tasker-Frontend
+
+- [Frontend GitHub Link](https://github.com/urmee04/pro-tasker-frontend)
 
 ---
 
@@ -79,7 +95,7 @@ PORT=3000
 
 **Step 2: Create a new User (Register)**
 
-- POST http://localhost:3000/api/users/register
+- POST http://localhost:3000/api/users/signup
 
 ```bash
 Request (Body = JSON)
@@ -127,6 +143,7 @@ Response
     "__v": 0
 }
 ```
+
 - Copy the `id` of the project required for tasks.
 
 **Step 5: Get All Projects**
@@ -237,11 +254,12 @@ Response
     "message": "Project deleted!"
 }
 ```
+
 ---
 
 #### References
 
-My primary resource for completing the project was the code from lab2: secure record storage, class lessons and materials. Additionally, I used the resources mentioned below to deepen my understanding of the concepts and code flow
+My primary resource for completing the project was the code from project: Backend Development, class lessons and materials. Additionally, I used the resources mentioned below to deepen my understanding of the concepts and code flow
 
 - [mongoose](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/mongoose)
 
@@ -249,3 +267,4 @@ My primary resource for completing the project was the code from lab2: secure re
 
 - [express.js Middleware](https://expressjs.com/en/guide/using-middleware.html)
 
+- [render docs](https://render.com/docs/your-first-deploy)
